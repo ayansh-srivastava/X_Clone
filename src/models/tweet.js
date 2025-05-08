@@ -9,10 +9,6 @@ const tweetSchema=new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'Comment'
     }],
-    hashtags : [{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Hashtag'
-    }],
     },
     {Timestamp:true}
 )
