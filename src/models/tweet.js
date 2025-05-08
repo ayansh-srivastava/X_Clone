@@ -1,22 +1,20 @@
-const mongoose=require(`mongoose`)
-const { isEmail } = require('validator');
+import mongoose from 'mongoose';
    
 const tweetSchema=new mongoose.Schema({
     content: {
         type:String,
-        required:true},
-    ownerEmail: {
-        type:String,
         required:true,
-        validate: [ isEmail, 'invalid email' ]
-    },
+        max:140},
     comments: [{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Comment'
-    }]
+    }],
+    hashtags : [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Hashtag'
+    }],
     },
     {Timestamp:true}
 )
 
-const Tweet=mongoose.model('Tweet',tweetSchema);
-module.exports=Tweet
+export default mongoose.model('Tweet',tweetSchema);

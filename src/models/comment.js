@@ -1,4 +1,4 @@
-const mongoose=require(`mongoose`)   
+import mongoose from 'mongoose';   
 const CommentSchema=new mongoose.Schema({
     content: {
         type:String,
@@ -12,5 +12,4 @@ const CommentSchema=new mongoose.Schema({
     {Timestamp:true}
 )
 
-const Comment=mongoose.model('Comment',CommentSchema);
-module.exports=Comment
+export const Comment=mongoose.model('Comment',CommentSchema);
