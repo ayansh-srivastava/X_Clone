@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import isEmail from "validator/lib/isEmail.js";
 import bcrypt from 'bcrypt'
-
+const saltRounds=10
 const userSchema= new mongoose.Schema({
     email:{
         type:String,
@@ -22,8 +22,11 @@ const userSchema= new mongoose.Schema({
     },
 })
 userSchema.pre('save',async function(next) {
+    const user=this
+    console.log(user)
+    console.log(saltRounds)
     if (user.password) {
-      user.password = await bcrypt.hash(user.password, saltRounds);
+      user.password =await bcrypt.hash(user.password, saltRounds);
     }
     next();
 });
