@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import isEmail from "validator/lib/isEmail.js";
+import bcrypt from 'bcrypt'
 
 const userSchema= new mongoose.Schema({
     email:{
@@ -20,6 +21,12 @@ const userSchema= new mongoose.Schema({
         type:String,
     },
 })
+userSchema.pre('save',async function(next) {
+    if (user.password) {
+      user.password = await bcrypt.hash(user.password, saltRounds);
+    }
+    next();
+});
 
 const user=mongoose.model("User",userSchema)
 export default user;

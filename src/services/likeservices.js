@@ -1,7 +1,7 @@
-import { LikeRepository , TweetRepo} from "../repository/index.js";
+import { LikeRepository , ReplyRepository, TweetRepo} from "../repository/index.js";
 const likeRepository=new LikeRepository
 const tweetRepository=new TweetRepo
-
+const replyRepository=new ReplyRepository
 
 class LikeServices{
     
@@ -10,8 +10,8 @@ class LikeServices{
         if(model=="Tweet"){
             likedobject=await tweetRepository.getTweetWithLikes(likeableid)
         }
-        else if(model=="Comment"){
-            //TODO
+        else if(model=="Reply"){
+            likedobject=await replyRepository.getbyid(likeableid)
         }
         else{
             throw new Error("Invalid object")

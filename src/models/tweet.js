@@ -5,9 +5,9 @@ const tweetSchema=new mongoose.Schema({
         type:String,
         required:true,
         max:140},
-    comments: [{
+    replies: [{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'Comment'
+        ref:'Reply'
     }],
     likes:[{
         type:mongoose.Schema.Types.ObjectId,

@@ -1,11 +1,11 @@
 import services from '../services/tweetservices.js'
 const TweetSerivices=new services
 
-export const create = async (req,res) => {
+export const createTweet = async (req,res) => {
     try {
         const data=await TweetSerivices.createTweet({
             content:req.body.content,
-            comments:[]
+            replies:[]
         })
         return res.status(201).json({
             success:true,

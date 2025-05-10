@@ -19,9 +19,9 @@ app.listen(PORT,async () => {
     //     password:"VDEDSSDFVS",
     //     userid:"helloworld"
     // })
-    const likeServices=new LikeServices;
-    likeServices.toggleLike("681e08f88a02064126537afc",
-        "681e0783b4b5504048f72ee1",
-        "Tweet"
-    )
+    // const likeServices=new LikeServices;
+    // likeServices.toggleLike("681e08f88a02064126537afc",
+    //     "681e0783b4b5504048f72ee1",
+    //     "Tweet"
+    // )
 });
